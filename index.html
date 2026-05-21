@@ -18,9 +18,13 @@
 
   nav{position:fixed;top:0;width:100%;background:rgba(26,26,26,0.95);backdrop-filter:blur(8px);z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(93,202,165,0.15)}
   .nav-logo{font-size:1.1rem;font-weight:700;color:var(--teal-light)}
-  .nav-links{display:flex;gap:2rem}
+  .nav-links{display:flex;gap:2rem;align-items:center}
   .nav-links a{font-size:0.875rem;color:rgba(255,255,255,0.7);transition:color .2s}
   .nav-links a:hover{color:var(--teal-light)}
+  .nav-right{display:flex;align-items:center;gap:1rem}
+  .lang-toggle{display:flex;align-items:center;background:rgba(255,255,255,0.06);border:1px solid rgba(93,202,165,0.25);border-radius:2rem;overflow:hidden;font-size:.8rem;font-weight:700}
+  .lang-btn{padding:.35rem .85rem;cursor:pointer;transition:all .2s;color:rgba(255,255,255,0.5)}
+  .lang-btn.active{background:var(--teal);color:var(--white)}
   .nav-cta{background:var(--teal);color:var(--white);padding:.5rem 1.25rem;border-radius:2rem;font-size:0.875rem;font-weight:600;transition:background .2s}
   .nav-cta:hover{background:var(--teal-dark)}
 
@@ -55,12 +59,12 @@
 
   .sobre-wrap{background:rgba(255,255,255,0.025);border-top:1px solid rgba(93,202,165,0.1);border-bottom:1px solid rgba(93,202,165,0.1)}
   .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-  .sobre-foto{width:100%;max-width:320px;border-radius:1.5rem;border:3px solid rgba(93,202,165,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.3);display:block;margin:0 auto 2rem}
-  .sobre-right{display:flex;flex-direction:column;align-items:center}
   .sobre-text p{color:rgba(255,255,255,0.75);margin-bottom:1.2rem;font-size:1.05rem}
   .sobre-text p strong{color:var(--teal-light)}
   .sobre-quote{border-left:3px solid var(--teal);padding:1.5rem 1.5rem 1.5rem 2rem;background:rgba(29,158,117,0.08);border-radius:0 1rem 1rem 0;font-style:italic;color:rgba(255,255,255,0.85);font-size:1.05rem;margin-top:2rem}
-  .timeline{position:relative;padding-left:1.5rem}
+  .sobre-foto{width:100%;max-width:320px;border-radius:1.5rem;border:3px solid rgba(93,202,165,0.25);box-shadow:0 8px 32px rgba(0,0,0,0.3);display:block;margin:0 auto 2rem}
+  .sobre-right{display:flex;flex-direction:column;align-items:center}
+  .timeline{position:relative;padding-left:1.5rem;width:100%}
   .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--teal),transparent)}
   .tl-item{margin-bottom:2rem;position:relative}
   .tl-dot{position:absolute;left:-1.85rem;top:.35rem;width:10px;height:10px;background:var(--teal-light);border-radius:50%}
@@ -120,50 +124,54 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">ZV Educação Corporativa</div>
   <div class="nav-links">
-    <a href="#sobre">Sobre</a>
-    <a href="#como-atuo">Como atuo</a>
-    <a href="#cases">Cases</a>
-    <a href="#contato">Contato</a>
+    <a href="#sobre" data-pt="Sobre" data-en="About">Sobre</a>
+    <a href="#como-atuo" data-pt="Como atuo" data-en="How I Work">Como atuo</a>
+    <a href="#cases" data-pt="Cases" data-en="Cases">Cases</a>
+    <a href="#contato" data-pt="Contato" data-en="Contact">Contato</a>
   </div>
-  <a href="mailto:zeila@zveducacaocorporativa.com.br" class="nav-cta">Vamos conversar</a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <div class="lang-btn active" onclick="setLang('pt')">PT</div>
+      <div class="lang-btn" onclick="setLang('en')">EN</div>
+    </div>
+    <a href="mailto:zeila@zveducacaocorporativa.com.br" class="nav-cta" data-pt="Vamos conversar" data-en="Let's Talk">Vamos conversar</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero-wrap">
   <div class="hero">
     <div>
-      <div class="hero-tag">Expert as a Service · Aprendizagem Corporativa</div>
-      <h1>Expertise sênior.<br><span>Quando você precisa.</span><br>Como você precisa.</h1>
-      <p>As empresas me chamam quando precisam aumentar a expertise e capacidade de entrega, sem aumentar estrutura.</p>
+      <div class="hero-tag" data-pt="Expert as a Service · Aprendizagem Corporativa" data-en="Expert as a Service · Corporate Learning">Expert as a Service · Aprendizagem Corporativa</div>
+      <h1 data-pt="Expertise sênior.<br><span>Quando você precisa.</span><br>Como você precisa." data-en="Senior Expertise.<br><span>When You Need It.</span><br>The Way You Need It.">Expertise sênior.<br><span>Quando você precisa.</span><br>Como você precisa.</h1>
+      <p data-pt="As empresas me chamam quando precisam aumentar a expertise e capacidade de entrega, sem aumentar estrutura." data-en="Organizations engage me when they need to increase expertise and delivery capacity without expanding their internal structure.">As empresas me chamam quando precisam aumentar a expertise e capacidade de entrega, sem aumentar estrutura.</p>
       <div class="hero-btns">
-        <a href="mailto:zeila@zveducacaocorporativa.com.br" class="btn-primary">✉ Fale comigo</a>
-        <a href="#como-atuo" class="btn-secondary">Como posso ajudar</a>
-        </div>
+        <a href="mailto:zeila@zveducacaocorporativa.com.br" class="btn-primary" data-pt="✉ Fale comigo" data-en="✉ Get in Touch">✉ Fale comigo</a>
+        <a href="#como-atuo" class="btn-secondary" data-pt="Como posso ajudar" data-en="How I Can Help">Como posso ajudar</a>
       </div>
     </div>
     <div class="hero-card">
       <div class="years-badge">25+</div>
-      <div class="years-label">anos de experiência em aprendizagem corporativa</div>
+      <div class="years-label" data-pt="anos de experiência em aprendizagem corporativa" data-en="years of experience in corporate learning">anos de experiência em aprendizagem corporativa</div>
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-n">16k+</div>
-          <div class="stat-l">colaboradores impactados</div>
+          <div class="stat-l" data-pt="colaboradores impactados" data-en="employees impacted">colaboradores impactados</div>
         </div>
         <div class="stat">
           <div class="stat-n">NPS 98</div>
-          <div class="stat-l">satisfação consistente</div>
+          <div class="stat-l" data-pt="satisfação consistente" data-en="consistent satisfaction">satisfação consistente</div>
         </div>
         <div class="stat">
           <div class="stat-n">Global</div>
-          <div class="stat-l">projetos em 5 países</div>
+          <div class="stat-l" data-pt="projetos em 5 países" data-en="projects across 5 countries">projetos em 5 países</div>
         </div>
         <div class="stat">
           <div class="stat-n">On demand</div>
-          <div class="stat-l">flexível ao seu momento</div>
+          <div class="stat-l" data-pt="flexível ao seu momento" data-en="flexible to your needs">flexível ao seu momento</div>
         </div>
       </div>
     </div>
@@ -175,47 +183,46 @@
   <section>
     <div class="sobre-grid">
       <div class="sobre-text">
-        <div class="section-tag">Quem sou</div>
-        <h2 class="section-title">Uma pessoa <span>apaixonada por aprender</span></h2>
-        <p>Comecei como telefonista em um hotel em São José dos Pinhais, no Paraná, sem experiência e com a 8ª série completa. O que não me faltava era <strong>vontade de aprender</strong> — e foi isso que me abriu as portas da educação corporativa.</p>
-        <p>Quando o hotel foi comprado pelo HSBC e transformado em centro de treinamento, "caí de paraquedas" em uma área que se tornaria minha vocação. Fiquei por convicção — são <strong>mais de 25 anos</strong> atuando em empresas nacionais e multinacionais, do segmento financeiro ao educacional.</p>
-        <p>Hoje ofereço essa experiência de forma <strong>flexível e sob demanda</strong>, como parceira estratégica de empresas que precisam de expertise sênior sem inflar estruturas.</p>
-        <div class="sobre-quote">
-          "Aprendizagem estratégica exige mais do que respostas prontas. Exige diagnóstico aprofundado e customização."
-        </div>
+        <div class="section-tag" data-pt="Quem sou" data-en="About Me">Quem sou</div>
+        <h2 class="section-title" data-pt="Uma pessoa <span>apaixonada por aprender</span>" data-en="A Professional <span>Passionate About Learning</span>">Uma pessoa <span>apaixonada por aprender</span></h2>
+        <p data-pt="Comecei como telefonista em um hotel em São José dos Pinhais, no Paraná, sem experiência e com a 8ª série completa. O que não me faltava era <strong>vontade de aprender</strong> — e foi isso que me abriu as portas da educação corporativa." data-en="I began my career as a hotel receptionist in São José dos Pinhais, Brazil, with no formal higher education — only a strong <strong>drive to learn</strong>. That drive opened the doors to corporate learning and defined my entire professional journey.">Comecei como telefonista em um hotel em São José dos Pinhais, no Paraná, sem experiência e com a 8ª série completa. O que não me faltava era <strong>vontade de aprender</strong> — e foi isso que me abriu as portas da educação corporativa.</p>
+        <p data-pt="Quando o hotel foi comprado pelo HSBC e transformado em centro de treinamento, 'caí de paraquedas' em uma área que se tornaria minha vocação. Fiquei por convicção — são <strong>mais de 25 anos</strong> atuando em empresas nacionais e multinacionais, do segmento financeiro ao educacional." data-en="When the hotel was acquired by HSBC and converted into a training center, I unexpectedly entered the field that would become my vocation. I stayed by choice — building over <strong>25 years</strong> of experience across national and multinational companies in financial services and education.">Quando o hotel foi comprado pelo HSBC e transformado em centro de treinamento, "caí de paraquedas" em uma área que se tornaria minha vocação. Fiquei por convicção — são <strong>mais de 25 anos</strong> atuando em empresas nacionais e multinacionais, do segmento financeiro ao educacional.</p>
+        <p data-pt="Hoje ofereço essa experiência de forma <strong>flexível e sob demanda</strong>, como parceira estratégica de empresas que precisam de expertise sênior sem inflar estruturas." data-en="Today, I offer this expertise in a <strong>flexible, on-demand model</strong> — serving as a strategic partner for organizations that require senior-level knowledge without the overhead of expanding their permanent workforce.">Hoje ofereço essa experiência de forma <strong>flexível e sob demanda</strong>, como parceira estratégica de empresas que precisam de expertise sênior sem inflar estruturas.</p>
+        <div class="sobre-quote" data-pt='"Aprendizagem estratégica exige mais do que respostas prontas. Exige diagnóstico aprofundado e customização."' data-en='"Strategic learning demands more than ready-made answers. It requires in-depth diagnosis and tailored solutions."'>"Aprendizagem estratégica exige mais do que respostas prontas. Exige diagnóstico aprofundado e customização."</div>
       </div>
       <div class="sobre-right">
         <img src="https://zveduc.github.io/ZVEDUCACAO/zeila.jpg.jpg" alt="Zeila Valaski" class="sobre-foto">
         <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2024 — PRESENTE</div>
-          <div class="tl-company">ZV Educação Corporativa</div>
-          <div class="tl-role">Expert as a Service · Consultora independente</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2021 — 2025</div>
-          <div class="tl-company">Ânima Educação</div>
-          <div class="tl-role">Gerente de Treinamento · Universidade Corporativa</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2019 — 2021</div>
-          <div class="tl-company">Laureate Brasil</div>
-          <div class="tl-role">Especialista em Educação Corporativa</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2018 — 2019</div>
-          <div class="tl-company">Zurich Santander</div>
-          <div class="tl-role">Consultora · Implantação de Universidade Corporativa</div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">1998 — 2016</div>
-          <div class="tl-company">HSBC</div>
-          <div class="tl-role">Especialista → Líder Regional de Aprendizagem (América Latina)</div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2024 — PRESENT</div>
+            <div class="tl-company">ZV Educação Corporativa</div>
+            <div class="tl-role" data-pt="Expert as a Service · Consultora independente" data-en="Expert as a Service · Independent Consultant">Expert as a Service · Consultora independente</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2021 — 2025</div>
+            <div class="tl-company">Ânima Educação</div>
+            <div class="tl-role" data-pt="Gerente de Treinamento · Universidade Corporativa" data-en="Training Manager · Corporate University">Gerente de Treinamento · Universidade Corporativa</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2019 — 2021</div>
+            <div class="tl-company">Laureate Brasil</div>
+            <div class="tl-role" data-pt="Especialista em Educação Corporativa" data-en="Corporate Learning Specialist">Especialista em Educação Corporativa</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">2018 — 2019</div>
+            <div class="tl-company">Zurich Santander</div>
+            <div class="tl-role" data-pt="Consultora · Implantação de Universidade Corporativa" data-en="Consultant · Corporate University Implementation">Consultora · Implantação de Universidade Corporativa</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-year">1998 — 2016</div>
+            <div class="tl-company">HSBC</div>
+            <div class="tl-role" data-pt="Especialista → Líder Regional de Aprendizagem (América Latina)" data-en="Specialist → Regional Learning Leader (Latin America)">Especialista → Líder Regional de Aprendizagem (América Latina)</div>
+          </div>
         </div>
       </div>
     </div>
@@ -224,39 +231,39 @@
 
 <!-- QUANDO CHAMAR -->
 <section id="quando">
-  <div class="section-tag">Quando me chamar</div>
-  <h2 class="section-title">Reconhece alguma <span>dessas situações?</span></h2>
-  <p class="section-sub">As empresas me chamam quando precisam de expertise sênior rápida, sem criar estrutura ou dependência externa.</p>
+  <div class="section-tag" data-pt="Quando me chamar" data-en="When to Engage Me">Quando me chamar</div>
+  <h2 class="section-title" data-pt="Reconhece alguma <span>dessas situações?</span>" data-en="Do Any of These <span>Sound Familiar?</span>">Reconhece alguma <span>dessas situações?</span></h2>
+  <p class="section-sub" data-pt="As empresas me chamam quando precisam de expertise sênior rápida, sem criar estrutura ou dependência externa." data-en="Organizations engage me when they need immediate senior expertise without building permanent structure or external dependency.">As empresas me chamam quando precisam de expertise sênior rápida, sem criar estrutura ou dependência externa.</p>
   <div class="quando-grid">
     <div class="quando-card">
       <div class="quando-icon">🎯</div>
-      <h3>Estratégia precisa de direção</h3>
-      <p>Você precisa desenhar ou redesenhar uma solução de aprendizagem — e quer fazer isso com diagnóstico consistente, não no achismo.</p>
+      <h3 data-pt="Estratégia precisa de direção" data-en="Strategy Needs Direction">Estratégia precisa de direção</h3>
+      <p data-pt="Você precisa desenhar ou redesenhar uma solução de aprendizagem — e quer fazer isso com diagnóstico consistente, não no achismo." data-en="You need to design or redesign a learning solution — and want to do so based on solid diagnosis, not assumptions.">Você precisa desenhar ou redesenhar uma solução de aprendizagem — e quer fazer isso com diagnóstico consistente, não no achismo.</p>
     </div>
     <div class="quando-card">
       <div class="quando-icon">⚡</div>
-      <h3>Time sobrecarregado</h3>
-      <p>O time interno é experiente, mas está sem fôlego para entregar um projeto importante. Precisa de reforço ágil e qualificado.</p>
+      <h3 data-pt="Time sobrecarregado" data-en="Overloaded Team">Time sobrecarregado</h3>
+      <p data-pt="O time interno é experiente, mas está sem fôlego para entregar um projeto importante. Precisa de reforço ágil e qualificado." data-en="Your internal team is experienced but lacks the bandwidth to deliver a critical project. You need agile, qualified reinforcement.">O time interno é experiente, mas está sem fôlego para entregar um projeto importante. Precisa de reforço ágil e qualificado.</p>
     </div>
     <div class="quando-card">
       <div class="quando-icon">🌱</div>
-      <h3>Time em formação</h3>
-      <p>A equipe é nova e precisa ganhar método, linguagem e segurança para entregar com consistência e autonomia.</p>
+      <h3 data-pt="Time em formação" data-en="Team in Development">Time em formação</h3>
+      <p data-pt="A equipe é nova e precisa ganhar método, linguagem e segurança para entregar com consistência e autonomia." data-en="Your team is new and needs to develop methodology, language, and confidence to deliver consistently and independently.">A equipe é nova e precisa ganhar método, linguagem e segurança para entregar com consistência e autonomia.</p>
     </div>
     <div class="quando-card">
       <div class="quando-icon">🌍</div>
-      <h3>Projetos globais ou regionais</h3>
-      <p>Rollout de programas internacionais que precisam de gestão local, localização de conteúdo e alinhamento de stakeholders.</p>
+      <h3 data-pt="Projetos globais ou regionais" data-en="Global or Regional Projects">Projetos globais ou regionais</h3>
+      <p data-pt="Rollout de programas internacionais que precisam de gestão local, localização de conteúdo e alinhamento de stakeholders." data-en="Rollout of international programs requiring local management, content localization, and stakeholder alignment.">Rollout de programas internacionais que precisam de gestão local, localização de conteúdo e alinhamento de stakeholders.</p>
     </div>
     <div class="quando-card">
       <div class="quando-icon">🔄</div>
-      <h3>Mudança estratégica</h3>
-      <p>Transformações que exigem coerência, foco e suporte contínuo ao longo do processo — não apenas um diagnóstico inicial.</p>
+      <h3 data-pt="Mudança estratégica" data-en="Strategic Change">Mudança estratégica</h3>
+      <p data-pt="Transformações que exigem coerência, foco e suporte contínuo ao longo do processo — não apenas um diagnóstico inicial." data-en="Transformations requiring coherence, focus, and ongoing support throughout the process — not just an initial assessment.">Transformações que exigem coerência, foco e suporte contínuo ao longo do processo — não apenas um diagnóstico inicial.</p>
     </div>
     <div class="quando-card">
       <div class="quando-icon">🔍</div>
-      <h3>O que existe não está funcionando</h3>
-      <p>Programas que não geram impacto, trilhas desconectadas do negócio ou iniciativas que não saem do papel precisam de um olhar crítico.</p>
+      <h3 data-pt="O que existe não está funcionando" data-en="Existing Solutions Aren't Working">O que existe não está funcionando</h3>
+      <p data-pt="Programas que não geram impacto, trilhas desconectadas do negócio ou iniciativas que não saem do papel precisam de um olhar crítico." data-en="Programs that aren't delivering impact, learning paths disconnected from business goals, or stalled initiatives need a critical external perspective.">Programas que não geram impacto, trilhas desconectadas do negócio ou iniciativas que não saem do papel precisam de um olhar crítico.</p>
     </div>
   </div>
 </section>
@@ -264,109 +271,109 @@
 <!-- COMO ATUO -->
 <div class="como-wrap" id="como-atuo">
   <section>
-    <div class="section-tag">Como atuo</div>
-    <h2 class="section-title">Cinco formas de <span>contribuir</span></h2>
-    <p class="section-sub">Minha atuação é sempre adaptada ao contexto — com clareza de escopo, sem jargão e com foco no que realmente move o ponteiro.</p>
+    <div class="section-tag" data-pt="Como atuo" data-en="How I Work">Como atuo</div>
+    <h2 class="section-title" data-pt="Cinco formas de <span>contribuir</span>" data-en="Five Ways I Can <span>Contribute</span>">Cinco formas de <span>contribuir</span></h2>
+    <p class="section-sub" data-pt="Minha atuação é sempre adaptada ao contexto — com clareza de escopo, sem jargão e com foco no que realmente move o ponteiro." data-en="My approach is always tailored to context — with clear scope, no jargon, and a focus on what truly drives results.">Minha atuação é sempre adaptada ao contexto — com clareza de escopo, sem jargão e com foco no que realmente move o ponteiro.</p>
     <div class="como-grid">
       <div class="como-card">
         <div class="como-num">01</div>
-        <h3>Diagnóstico & Direcionamento Estratégico</h3>
-        <p>Entro para compreender rapidamente o contexto e transformar informações dispersas em direcionamentos claros e viáveis — onde investir e onde não investir em aprendizagem.</p>
-        <span class="como-ex">Revisão de catálogo · Priorização · Alinhamento estratégico</span>
+        <h3 data-pt="Diagnóstico & Direcionamento Estratégico" data-en="Diagnosis & Strategic Direction">Diagnóstico & Direcionamento Estratégico</h3>
+        <p data-pt="Entro para compreender rapidamente o contexto e transformar informações dispersas em direcionamentos claros e viáveis — onde investir e onde não investir em aprendizagem." data-en="I quickly assess the context and transform scattered information into clear, actionable direction — identifying where to invest and where not to invest in learning.">Entro para compreender rapidamente o contexto e transformar informações dispersas em direcionamentos claros e viáveis — onde investir e onde não investir em aprendizagem.</p>
+        <span class="como-ex" data-pt="Revisão de catálogo · Priorização · Alinhamento estratégico" data-en="Catalog review · Prioritization · Strategic alignment">Revisão de catálogo · Priorização · Alinhamento estratégico</span>
       </div>
       <div class="como-card">
         <div class="como-num">02</div>
-        <h3>Desenho de Soluções de Aprendizagem</h3>
-        <p>Traduzo estratégia em experiências aplicáveis e relevantes — apoiando o redesenho de programas existentes ou a criação de novas soluções junto às equipes internas.</p>
-        <span class="como-ex">Liderança · Trilhas · Academias corporativas</span>
+        <h3 data-pt="Desenho de Soluções de Aprendizagem" data-en="Learning Solution Design">Desenho de Soluções de Aprendizagem</h3>
+        <p data-pt="Traduzo estratégia em experiências aplicáveis e relevantes — apoiando o redesenho de programas existentes ou a criação de novas soluções junto às equipes internas." data-en="I translate strategy into applicable and relevant learning experiences — supporting the redesign of existing programs or the creation of new solutions alongside internal teams.">Traduzo estratégia em experiências aplicáveis e relevantes — apoiando o redesenho de programas existentes ou a criação de novas soluções junto às equipes internas.</p>
+        <span class="como-ex" data-pt="Liderança · Trilhas · Academias corporativas" data-en="Leadership · Learning paths · Corporate academies">Liderança · Trilhas · Academias corporativas</span>
       </div>
       <div class="como-card">
         <div class="como-num">03</div>
-        <h3>Mentorias Estratégicas</h3>
-        <p>Apoio o desenvolvimento de indivíduos ou equipes — repertório, visão sistêmica e criticidade — sem fórmulas prontas, com escuta genuína e provocação qualificada.</p>
-        <span class="como-ex">Trilhas de liderança · Trainees · Grupos</span>
+        <h3 data-pt="Mentorias Estratégicas" data-en="Strategic Mentoring">Mentorias Estratégicas</h3>
+        <p data-pt="Apoio o desenvolvimento de indivíduos ou equipes — repertório, visão sistêmica e criticidade — sem fórmulas prontas, com escuta genuína e provocação qualificada." data-en="I support the development of individuals or teams — building knowledge, systemic thinking, and critical analysis — without ready-made formulas, with genuine listening and qualified provocation.">Apoio o desenvolvimento de indivíduos ou equipes — repertório, visão sistêmica e criticidade — sem fórmulas prontas, com escuta genuína e provocação qualificada.</p>
+        <span class="como-ex" data-pt="Trilhas de liderança · Trainees · Grupos" data-en="Leadership tracks · Trainees · Group sessions">Trilhas de liderança · Trainees · Grupos</span>
       </div>
       <div class="como-card">
         <div class="como-num">04</div>
-        <h3>Aceleração de Times Internos</h3>
-        <p>Atuo lado a lado com o time, desenvolvendo método, linguagem e autonomia enquanto o trabalho acontece — sem criar dependência externa.</p>
-        <span class="como-ex">Acompanhamento de projetos · Capacitação on the job</span>
+        <h3 data-pt="Aceleração de Times Internos" data-en="Internal Team Acceleration">Aceleração de Times Internos</h3>
+        <p data-pt="Atuo lado a lado com o time, desenvolvendo método, linguagem e autonomia enquanto o trabalho acontece — sem criar dependência externa." data-en="I work side by side with the team, developing methodology, common language, and autonomy as the work unfolds — without creating external dependency.">Atuo lado a lado com o time, desenvolvendo método, linguagem e autonomia enquanto o trabalho acontece — sem criar dependência externa.</p>
+        <span class="como-ex" data-pt="Acompanhamento de projetos · Capacitação on the job" data-en="Project support · On-the-job capability building">Acompanhamento de projetos · Capacitação on the job</span>
       </div>
       <div class="como-card">
         <div class="como-num">05</div>
-        <h3>Apoio a Projetos Estratégicos</h3>
-        <p>Contribuo em projetos sensíveis ou de alta visibilidade, conectando stakeholders e trazendo coerência, foco e sustentação às decisões ao longo do percurso.</p>
-        <span class="como-ex">Gestão da mudança · Projetos críticos de RH</span>
+        <h3 data-pt="Apoio a Projetos Estratégicos" data-en="Strategic Project Support">Apoio a Projetos Estratégicos</h3>
+        <p data-pt="Contribuo em projetos sensíveis ou de alta visibilidade, conectando stakeholders e trazendo coerência, foco e sustentação às decisões ao longo do percurso." data-en="I contribute to sensitive or high-visibility projects, connecting stakeholders and bringing coherence, focus, and sustained support to decisions throughout the journey.">Contribuo em projetos sensíveis ou de alta visibilidade, conectando stakeholders e trazendo coerência, foco e sustentação às decisões ao longo do percurso.</p>
+        <span class="como-ex" data-pt="Gestão da mudança · Projetos críticos de RH" data-en="Change management · Critical HR projects">Gestão da mudança · Projetos críticos de RH</span>
       </div>
     </div>
   </section>
 </div>
 
-<!-- CASES DE SUCESSO -->
+<!-- CASES -->
 <section id="cases">
-  <div class="section-tag">Cases de Sucesso</div>
-  <h2 class="section-title">Projetos de <span>Destaque</span></h2>
-  <p class="section-sub">Entregas concretas em empresas nacionais e multinacionais — com impacto mensurável em pessoas, processos e cultura.</p>
+  <div class="section-tag" data-pt="Cases de Sucesso" data-en="Success Cases">Cases de Sucesso</div>
+  <h2 class="section-title" data-pt="Projetos de <span>Destaque</span>" data-en="Featured <span>Projects</span>">Projetos de <span>Destaque</span></h2>
+  <p class="section-sub" data-pt="Entregas concretas em empresas nacionais e multinacionais — com impacto mensurável em pessoas, processos e cultura." data-en="Concrete deliverables across national and multinational organizations — with measurable impact on people, processes, and culture.">Entregas concretas em empresas nacionais e multinacionais — com impacto mensurável em pessoas, processos e cultura.</p>
   <div class="historia-grid">
     <div class="historia-card">
-      <div class="historia-tag">Desenvolvimento de Liderança</div>
-      <div class="historia-title">Programa de feedback para 700+ líderes</div>
-      <div class="historia-text">Desenho de rodas de conversa sobre feedback para apoiar o ciclo anual de gestão de desempenho na Ânima Educação — com participação de mais de 700 líderes em todo o Brasil.</div>
+      <div class="historia-tag" data-pt="Desenvolvimento de Liderança" data-en="Leadership Development">Desenvolvimento de Liderança</div>
+      <div class="historia-title" data-pt="Programa de feedback para 700+ líderes" data-en="Feedback Program for 700+ Leaders">Programa de feedback para 700+ líderes</div>
+      <div class="historia-text" data-pt="Desenho de rodas de conversa sobre feedback para apoiar o ciclo anual de gestão de desempenho na Ânima Educação — com participação de mais de 700 líderes em todo o Brasil." data-en="Design of feedback conversation workshops to support the annual performance management cycle at Ânima Educação — engaging over 700 leaders across Brazil.">Desenho de rodas de conversa sobre feedback para apoiar o ciclo anual de gestão de desempenho na Ânima Educação — com participação de mais de 700 líderes em todo o Brasil.</div>
       <div class="historia-moral">📊 NPS 98 · Ânima Educação</div>
     </div>
     <div class="historia-card">
-      <div class="historia-tag">Gestão da Mudança</div>
-      <div class="historia-title">Implantação de HCM com 7 mil pessoas impactadas</div>
-      <div class="historia-text">Gestão do projeto de implantação do novo sistema Oracle HCM, integrando 9 subsistemas de RH, liderando o plano de gestão da mudança e entregando mais de 20 sessões de treinamento para toda a operação.</div>
-      <div class="historia-moral">📊 7.000 colaboradores · Ânima Educação</div>
+      <div class="historia-tag" data-pt="Gestão da Mudança" data-en="Change Management">Gestão da Mudança</div>
+      <div class="historia-title" data-pt="Implantação de HCM com 7 mil pessoas impactadas" data-en="HCM Implementation Impacting 7,000 Employees">Implantação de HCM com 7 mil pessoas impactadas</div>
+      <div class="historia-text" data-pt="Gestão do projeto de implantação do novo sistema Oracle HCM, integrando 9 subsistemas de RH, liderando o plano de gestão da mudança e entregando mais de 20 sessões de treinamento para toda a operação." data-en="Project management for Oracle HCM implementation, integrating 9 HR subsystems, leading the change management plan, and delivering over 20 training sessions across the entire operation.">Gestão do projeto de implantação do novo sistema Oracle HCM, integrando 9 subsistemas de RH, liderando o plano de gestão da mudança e entregando mais de 20 sessões de treinamento para toda a operação.</div>
+      <div class="historia-moral">📊 7,000 employees · Ânima Educação</div>
     </div>
     <div class="historia-card">
-      <div class="historia-tag">Projetos Globais</div>
-      <div class="historia-title">Rollout regional de Wealth Management</div>
-      <div class="historia-text">Implementação do currículo global de Wealth Management no Brasil e suporte à América Latina — mais de 60 soluções de aprendizagem traduzidas, localizadas e entregues com fornecedores globais e especialistas locais.</div>
-      <div class="historia-moral">📊 Brasil, Argentina e México · HSBC</div>
+      <div class="historia-tag" data-pt="Projetos Globais" data-en="Global Projects">Projetos Globais</div>
+      <div class="historia-title" data-pt="Rollout regional de Wealth Management" data-en="Regional Wealth Management Rollout">Rollout regional de Wealth Management</div>
+      <div class="historia-text" data-pt="Implementação do currículo global de Wealth Management no Brasil e suporte à América Latina — mais de 60 soluções de aprendizagem traduzidas, localizadas e entregues com fornecedores globais e especialistas locais." data-en="Implementation of the global Wealth Management curriculum in Brazil and support across Latin America — over 60 learning solutions translated, localized, and delivered with global vendors and local subject-matter experts.">Implementação do currículo global de Wealth Management no Brasil e suporte à América Latina — mais de 60 soluções de aprendizagem traduzidas, localizadas e entregues com fornecedores globais e especialistas locais.</div>
+      <div class="historia-moral">📊 Brazil, Argentina & Mexico · HSBC</div>
     </div>
     <div class="historia-card">
-      <div class="historia-tag">Escala & Multiplicação</div>
-      <div class="historia-title">900 gerentes capacitados + 10 mil impactados por multiplicadores internos</div>
-      <div class="historia-text">Implementação de programa global para gerentes de agência: localização dos materiais, train the trainers, turma piloto e cascateamento. Cada gerente treinado replicou o conteúdo ao seu time.</div>
-      <div class="historia-moral">📊 10.900 pessoas impactadas · HSBC</div>
+      <div class="historia-tag" data-pt="Escala & Multiplicação" data-en="Scale & Multiplication">Escala & Multiplicação</div>
+      <div class="historia-title" data-pt="900 gerentes capacitados + 10 mil impactados por multiplicadores internos" data-en="900 Managers Trained + 10,000 Impacted via Internal Multipliers">900 gerentes capacitados + 10 mil impactados por multiplicadores internos</div>
+      <div class="historia-text" data-pt="Implementação de programa global para gerentes de agência: localização dos materiais, train the trainers, turma piloto e cascateamento. Cada gerente treinado replicou o conteúdo ao seu time." data-en="Implementation of a global program for branch managers: content localization, train-the-trainer sessions, pilot cohort, and cascade rollout. Each trained manager replicated the content to their teams.">Implementação de programa global para gerentes de agência: localização dos materiais, train the trainers, turma piloto e cascateamento. Cada gerente treinado replicou o conteúdo ao seu time.</div>
+      <div class="historia-moral">📊 10,900 people impacted · HSBC</div>
     </div>
     <div class="historia-card">
-      <div class="historia-tag">Universidade Corporativa</div>
-      <div class="historia-title">Implantação em contexto de pandemia</div>
-      <div class="historia-text">Reposicionamento ágil da universidade corporativa durante a crise de 2020: lançamento de cursos sobre trabalho remoto e liderança virtual, além de campanhas internas para manter conexão e aprendizagem contínua.</div>
+      <div class="historia-tag" data-pt="Universidade Corporativa" data-en="Corporate University">Universidade Corporativa</div>
+      <div class="historia-title" data-pt="Implantação em contexto de pandemia" data-en="Implementation During the Pandemic">Implantação em contexto de pandemia</div>
+      <div class="historia-text" data-pt="Reposicionamento ágil da universidade corporativa durante a crise de 2020: lançamento de cursos sobre trabalho remoto e liderança virtual, além de campanhas internas para manter conexão e aprendizagem contínua." data-en="Agile repositioning of the corporate university during the 2020 crisis: launch of courses on remote work and virtual leadership, along with internal campaigns to sustain connection and continuous learning.">Reposicionamento ágil da universidade corporativa durante a crise de 2020: lançamento de cursos sobre trabalho remoto e liderança virtual, além de campanhas internas para manter conexão e aprendizagem contínua.</div>
       <div class="historia-moral">📊 Laureate Brasil · 2020</div>
     </div>
     <div class="historia-card">
-      <div class="historia-tag">Onboarding & Cultura</div>
-      <div class="historia-title">Redesenho de onboarding para 16 mil colaboradores</div>
-      <div class="historia-text">Redesenho completo do programa de onboarding para públicos docente e administrativo, com módulos corporativos e locais — implantado junto à nova plataforma LMS Oracle para toda a rede da Ânima.</div>
-      <div class="historia-moral">📊 NPS acima de 90 · Ânima Educação</div>
+      <div class="historia-tag" data-pt="Onboarding & Cultura" data-en="Onboarding & Culture">Onboarding & Cultura</div>
+      <div class="historia-title" data-pt="Redesenho de onboarding para 16 mil colaboradores" data-en="Onboarding Redesign for 16,000 Employees">Redesenho de onboarding para 16 mil colaboradores</div>
+      <div class="historia-text" data-pt="Redesenho completo do programa de onboarding para públicos docente e administrativo, com módulos corporativos e locais — implantado junto à nova plataforma LMS Oracle para toda a rede da Ânima." data-en="Full redesign of the onboarding program for academic and administrative staff, with corporate and local modules — implemented alongside the new Oracle LMS platform across the entire Ânima network.">Redesenho completo do programa de onboarding para públicos docente e administrativo, com módulos corporativos e locais — implantado junto à nova plataforma LMS Oracle para toda a rede da Ânima.</div>
+      <div class="historia-moral">📊 NPS above 90 · Ânima Educação</div>
     </div>
   </div>
 </section>
 
-<!-- FORMAS DE CONTRATAÇÃO -->
+<!-- FORMAS -->
 <section>
-  <div class="section-tag">Formas de atuação</div>
-  <h2 class="section-title">Flexível ao seu <span>momento</span></h2>
-  <p class="section-sub">Minha atuação é on demand e ajustável. Podemos combinar formatos conforme a necessidade — sempre com clareza de escopo e expectativa de entrega.</p>
+  <div class="section-tag" data-pt="Formas de atuação" data-en="Engagement Models">Formas de atuação</div>
+  <h2 class="section-title" data-pt="Flexível ao seu <span>momento</span>" data-en="Flexible to Your <span>Needs</span>">Flexível ao seu <span>momento</span></h2>
+  <p class="section-sub" data-pt="Minha atuação é on demand e ajustável. Podemos combinar formatos conforme a necessidade — sempre com clareza de escopo e expectativa de entrega." data-en="My work is on-demand and adaptable. We can combine formats as needed — always with clear scope and defined delivery expectations.">Minha atuação é on demand e ajustável. Podemos combinar formatos conforme a necessidade — sempre com clareza de escopo e expectativa de entrega.</p>
   <div class="formas-grid">
     <div class="forma-card">
       <div class="forma-icon">📋</div>
-      <h3>Por projeto</h3>
-      <p>Escopo e entrega definidos. Ideal para implantações, redesenhos e projetos com início, meio e fim.</p>
+      <h3 data-pt="Por projeto" data-en="Project-Based">Por projeto</h3>
+      <p data-pt="Escopo e entrega definidos. Ideal para implantações, redesenhos e projetos com início, meio e fim." data-en="Defined scope and deliverables. Ideal for implementations, redesigns, and projects with a clear beginning, middle, and end.">Escopo e entrega definidos. Ideal para implantações, redesenhos e projetos com início, meio e fim.</p>
     </div>
     <div class="forma-card">
       <div class="forma-icon">📅</div>
-      <h3>Por período</h3>
-      <p>Atuação contínua por um ciclo definido. Indicado para aceleração de times e gestão de mudança.</p>
+      <h3 data-pt="Por período" data-en="Period-Based">Por período</h3>
+      <p data-pt="Atuação contínua por um ciclo definido. Indicado para aceleração de times e gestão de mudança." data-en="Ongoing engagement over a defined cycle. Recommended for team acceleration and change management initiatives.">Atuação contínua por um ciclo definido. Indicado para aceleração de times e gestão de mudança.</p>
     </div>
     <div class="forma-card">
       <div class="forma-icon">🔍</div>
-      <h3>Pontual</h3>
-      <p>Sessões específicas de diagnóstico, consultoria ou mentoria. Quando você precisa de um olhar externo qualificado.</p>
+      <h3 data-pt="Pontual" data-en="Advisory">Pontual</h3>
+      <p data-pt="Sessões específicas de diagnóstico, consultoria ou mentoria. Quando você precisa de um olhar externo qualificado." data-en="Targeted diagnosis, consulting, or mentoring sessions. When you need a qualified external perspective.">Sessões específicas de diagnóstico, consultoria ou mentoria. Quando você precisa de um olhar externo qualificado.</p>
     </div>
   </div>
 </section>
@@ -375,9 +382,9 @@
 <div class="contato-wrap" id="contato">
   <section>
     <div class="contato-inner">
-      <div class="section-tag">Próximo passo</div>
-      <h2>Uma conversa para avaliar <span style="color:var(--teal-light)">como posso contribuir</span></h2>
-      <p>Sem pitch, sem proposta genérica. Uma conversa honesta para entender seu contexto e avaliarmos se & como eu posso contribuir com você.</p>
+      <div class="section-tag" data-pt="Próximo passo" data-en="Next Step">Próximo passo</div>
+      <h2 data-pt="Uma conversa para avaliar <span style='color:var(--teal-light)'>como posso contribuir</span>" data-en="A Conversation to Explore <span style='color:var(--teal-light)'>How I Can Contribute</span>">Uma conversa para avaliar <span style="color:var(--teal-light)">como posso contribuir</span></h2>
+      <p data-pt="Sem pitch, sem proposta genérica. Uma conversa honesta para entender seu contexto e avaliarmos se & como eu posso contribuir com você." data-en="No pitch, no generic proposal. An honest conversation to understand your context and assess whether and how I can contribute.">Sem pitch, sem proposta genérica. Uma conversa honesta para entender seu contexto e avaliarmos se & como eu posso contribuir com você.</p>
       <a href="mailto:zeila@zveducacaocorporativa.com.br" class="email-btn">
         ✉ zeila@zveducacaocorporativa.com.br
       </a>
@@ -387,15 +394,31 @@
           linkedin.com/in/zeila-valaski
         </a>
       </div>
-      <p style="margin-top:2rem;font-size:.95rem;font-style:italic;color:rgba(255,255,255,0.5)">"A expertise que você precisa, quando você precisa."</p>
+      <p style="margin-top:2rem;font-size:.95rem;font-style:italic;color:rgba(255,255,255,0.5)" data-pt='"A expertise que você precisa, quando você precisa."' data-en='"The expertise you need, when you need it."'>"A expertise que você precisa, quando você precisa."</p>
     </div>
   </section>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 <span>ZV Educação Corporativa</span> · zeila@zveducacaocorporativa.com.br · <a href="https://www.linkedin.com/in/zeila-valaski" target="_blank" style="color:var(--teal-light)">LinkedIn</a></p>
 </footer>
 
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    const txt = el.getAttribute(`data-${lang}`);
+    if (txt) el.innerHTML = txt;
+  });
+
+  // Nav links
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const t = a.getAttribute(`data-${lang}`);
+    if(t) a.textContent = t;
+  });
+}
+</script>
 </body>
 </html>
